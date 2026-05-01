@@ -1,0 +1,14 @@
+[package]
+name = "surge"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.11", default-features = false, features = ["stream", "rustls-tls-webpki-roots"] }
+clap = { version = "4.4", features = ["derive"] }
+indicatif = "0.17"
+anyhow = "1.0"
+futures-util = "0.3"
+url = "2.5"
+libc = "0.2"
