@@ -28,26 +28,28 @@ cargo build --release
 sudo cp target/release/surge /usr/local/bin/
 ```
 
-## Usage
-
-### Simple Download
+### Bulk Download
 ```bash
-surge https://example.com/file.zip
+surge -i links.txt -c 32
 ```
 
-### High-Speed Video Download (4K/1080p)
+### Verified Download
 ```bash
-surge https://youtu.be/VIDEO_ID -o video.mp4 -c 32
+surge <URL> --sha256 <HASH>
 ```
 
-### Options
+## Options
 - `-c, --concurrency <N>`: Number of concurrent connections (default: 8).
+- `-i, --input-file <PATH>`: Batch download URLs from a text file.
 - `-o, --output <PATH>`: Specify output filename/path.
+- `--sha256 <HASH>`: Verify file integrity with SHA256.
+- `--md5 <HASH>`: Verify file integrity with MD5.
 - `-H, --headers <KEY:VAL>`: Add custom HTTP headers.
 - `-b, --cookie <COOKIE>`: Pass a session cookie string.
 - `-e, --referer <URL>`: Set a custom referer URL.
 - `-f, --format <FMT>`: Specify video format (passed to `yt-dlp`).
 - `--insecure`: Allow invalid/expired SSL certificates.
+
 
 ## Performance Tuning
 Surge is tuned for Gbps speeds. For the absolute maximum throughput on a 1Gbps connection, use higher concurrency:
